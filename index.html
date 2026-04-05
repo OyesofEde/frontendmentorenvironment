@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="stylist.css">
+  
+  <title>Frontend Mentor | Typing Speed Test</title>
+
+</head>
+
+<body>
+<main>
+    <!-- Navbar -->
+  <div class="navbar">
+    <img src="./assets/images/logo-large.svg" alt="typing speed test logo" class="desktop-only">
+    <img src="./assets/images/logo-small.svg" alt="typing speed test logo" class="mobile-only">
+    <p>Personal Best: <span id="personal-best">0</span> WPM</p>
+  </div>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <p>WPM: <span id="wpm">0</span></p>
+    <p>Accuracy: <span id="accuracy">0</span>%</p>
+    <p>Time: <span id="time">0</span>s</p>
+  </div>
+
+  <!-- Options -->
+  <div class="options">
+
+    <div class="option-group">
+      <p>Difficulty:</p>
+      <div class="option-btns">
+        <button class="option-btn active" data-difficulty="easy">Easy</button>
+        <button class="option-btn" data-difficulty="medium">Medium</button>
+        <button class="option-btn" data-difficulty="hard">Hard</button>
+      </div>
+    </div>
+
+    <div class="option-group">
+      <p>Mode:</p>
+      <div class="option-btns">
+        <button class="option-btn" data-mode="10">Time: 10s</button>
+        <button class="option-btn" data-mode="15">Time: 15s</button>
+        <button class="option-btn active" data-mode="30">Time: 30s</button>
+        <button class="option-btn" data-mode="60">Time: 60s</button>
+        <button class="option-btn" data-mode="passage">Passage</button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdowns -->
+    <select id="difficulty-select">
+      <option value="easy" selected>Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+
+    <select id="mode-select">
+      <option value="10">10s</option>
+      <option value="15">15s</option>
+      <option value="30" selected>30s</option>
+      <option value="60">60s</option>
+      <option value="passage">Passage</option>
+    </select>
+
+  </div>
+
+  <!-- Typing Area -->
+  <div class="typing-area">
+    <p id="passage" hidden>The passage will appear here.</p>
+    <button class="hint" id="start-test-btn">Click to Start Typing</button>
+  </div>
+
+  <!-- Results Modal -->
+   <div class="results-backdrop"></div>
+  <div class="results" id="results" hidden>
+    <img src="./assets/images/icon-completed.svg" alt="Completed">
+    <h2>Test Complete!</h2>
+    <p class="subtitle">Solid run. Keep pushing to beat your high score.</p>
+
+    <div class="results-stats">
+      <p>WPM: <span id="result-wpm">0</span></p>
+      <p>Accuracy: <span id="result-accuracy">0</span>%</p>
+      <p>Characters: <span id="result-chars">0/0</span></p>
+    </div>
+
+    <button id="go-again">Go Again</button>
+  </div>
+  <img src="./assets/images/pattern-star-2.svg" alt="star2" class="result-decoration decoration-1">
+  <img src="./assets/images/pattern-star-1.svg" alt="star1" class="result-decoration decoration-2">
+</main>
+  <script src="script.js"></script>
+</body>
+</html>
