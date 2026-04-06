@@ -346,8 +346,8 @@ main {
 @media (max-width: 600px) {
 
   /* Logo swap */
-  .desktop-only { display: none; }
-  .mobile-only { display: block; width: 80px; }
+  .desktop-only { display: none !important; }
+  .mobile-only { display: block !important; width: 40px; }
 
   /* Navbar */
   .navbar {
@@ -359,17 +359,24 @@ main {
 
   /* Stats Bar - stack vertically */
   .stats-bar {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 0.4rem;
+    gap: 1rem;
     font-size: 0.9rem;
     padding: 0.75rem 1rem;
   }
   .stats-bar p {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 200px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    width: auto;
+    max-width: none;
+    padding: 0 1rem;
+  }
+  .stats-bar p:nth-child(1),
+  .stats-bar p:nth-child(2) {
+    border-right: 1px solid hsl(0, 0%, 30%);
   }
 
   /* Options - hide buttons and labels, show dropdowns */
@@ -411,8 +418,10 @@ main {
   .results {
     padding: 1.5rem;
     min-width: unset;
-    width: 90vw;
+    width: 70vw;
+	height: 70vh;
     max-width: none;
+	top: 45%;
   }
   .results h2 {
     font-size: 1.3rem;
@@ -467,7 +476,7 @@ main {
 
 /* Logo swap */
 .mobile-only { display: none; }
-.desktop-only { display: block; }
+.desktop-only { display: block; width: 150px; }
 
 /* Hide dropdowns on desktop */
 @media (min-width: 601px) {
@@ -514,4 +523,9 @@ img[alt="Completed"] {
   right: 10%;
   width: 50px;
   z-index: 1001;
+}
+
+.blurred {
+  filter: blur(4px);
+  user-select: none;
 }
