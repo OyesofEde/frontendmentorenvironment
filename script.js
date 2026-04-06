@@ -182,6 +182,43 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+// Mobile Input Listener (for hidden input)
+document.getElementById("hidden-input").addEventListener("input", (e) => {
+  if (!isRunning) return;
+
+  const inputText = e.target.value;
+  if (inputText.length === 0) return;
+
+  const lastChar = inputText[inputText.length - 1];
+  if (lastChar.length > 1) return;
+
+  lastKeyTime = Date.now();
+
+  const spans = document.querySelectorAll("#passage span");
+  const currentIndex = document.querySelectorAll(".correct, .incorrect").length;
+  const currentSpan = spans[currentIndex];
+
+  if (!currentSpan) return;
+
+  if (lastChar === currentPassage[currentIndex]) {
+    currentSpan.classList.add("correct");
+  } else {
+    currentSpan.classList.add("incorrect");
+  }
+
+  updateStats();
+
+  // Clear hidden input and keep it focused
+  e.target.value = "";
+  e.target.focus();
+
+  if (currentIndex + 1 === currentPassage.length) {
+    if (currentMode === "passage") {
+      endTest();
+    }
+  }
+});
+
 // End Test
 function endTest() {
   isRunning = false;
