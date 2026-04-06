@@ -82,14 +82,15 @@ function startTest() {
   startBtn.style.display = "none";
   passage.classList.remove("blurred");
   document.querySelector(".results-backdrop").style.display = "none";
-  passage.focus();
+  document.getElementById("hidden-input").focus();
+}
 
   if (currentMode !== "passage") {
     timeLeft = parseInt(currentMode);
     time.textContent = timeLeft;
     startTimer();
   }
-}
+
 
 // Start Button
 startBtn.addEventListener("click", () => {
