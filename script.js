@@ -153,6 +153,8 @@ document.addEventListener("keydown", (e) => {
   if (!isRunning) return;
   if (e.key.length > 1) return;
 
+  e.preventDefault(); // Prevent default input behavior
+
   lastKeyTime = Date.now();
 
   const spans = document.querySelectorAll("#passage span");
@@ -168,6 +170,10 @@ document.addEventListener("keydown", (e) => {
   }
 
   updateStats();
+
+  // Clear hidden input and keep it focused
+  document.getElementById("hidden-input").value = "";
+  document.getElementById("hidden-input").focus();
 
   if (currentIndex + 1 === currentPassage.length) {
     if (currentMode === "passage") {
