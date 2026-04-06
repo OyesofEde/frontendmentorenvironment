@@ -219,6 +219,13 @@ document.getElementById("hidden-input").addEventListener("input", (e) => {
   }
 });
 
+// Refocus hidden input on typing area click (mobile)
+document.querySelector(".typing-area").addEventListener("click", (e) => {
+  if (!isRunning) return;
+  if (e.target.id === "start-test-btn") return; // Don't interfere with button clicks
+  document.getElementById("hidden-input").focus();
+});
+
 // End Test
 function endTest() {
   isRunning = false;
