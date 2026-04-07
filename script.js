@@ -9,6 +9,7 @@ const passage = document.getElementById('passage');
 const modeBtns = document.querySelectorAll('[data-mode]');
 const difficultyBtns = document.querySelectorAll('[data-difficulty]');
 const passageBtn = document.querySelector('[data-mode="passage"]');
+const restartBtn = document.getElementById('restart-btn');
 
 // Variables
 let currentPassage = "";
@@ -48,6 +49,11 @@ function displayPassage() {
     .split("")
     .map((char, index) => `<span data-index="${index}">${char}</span>`)
     .join("");
+  passage.style.cursor = "pointer"; // Show pointer cursor to indicate clickable
+  restartBtn.hidden = true;
+  // Add initial cursor
+  const firstSpan = document.querySelector("#passage span");
+  if (firstSpan) firstSpan.classList.add("cursor");
 }
 
 // Difficulty Buttons
@@ -83,10 +89,15 @@ function startTest() {
   passage.classList.remove("blurred");
   document.querySelector(".results-backdrop").style.display = "none";
   document.getElementById("hidden-input").focus();
+  restartBtn.hidden = false;
 
   if (currentMode !== "passage") {
     timeLeft = parseInt(currentMode);
     time.textContent = timeLeft;
+    startTimer();
+  } else {
+    timeLeft = 0;
+    time.textContent = "0s";
     startTimer();
   }
 }
@@ -97,17 +108,44 @@ startBtn.addEventListener("click", () => {
   document.documentElement.focus();
 });
 
+// Click passage to start
+passage.addEventListener("click", () => {
+  if (!isRunning) {
+    startTest();
+  }
+});
+
+// Restart button
+restartBtn.addEventListener("click", () => {
+  if (isRunning) {
+    clearInterval(timerInterval);
+    isRunning = false;
+    timeLeft = currentMode === "passage" ? null : parseInt(currentMode);
+    time.textContent = timeLeft ?? "-";
+    wpm.textContent = 0;
+    accuracy.textContent = 0;
+    passage.classList.add("blurred");
+    startBtn.style.display = "block";
+    restartBtn.hidden = true;
+    loadPassage();
+  }
+});
+
 // Timer
 function startTimer() {
   timerInterval = setInterval(() => {
-    timeLeft--;
-    time.textContent = timeLeft;
-    updateStats();
-
-    if (timeLeft === 0) {
-      clearInterval(timerInterval);
-      endTest();
+    if (currentMode === "passage") {
+      timeLeft++;
+      time.textContent = timeLeft + "s";
+    } else {
+      timeLeft--;
+      time.textContent = timeLeft;
+      if (timeLeft === 0) {
+        clearInterval(timerInterval);
+        endTest();
+      }
     }
+    updateStats();
   }, 1000);
 }
 
@@ -117,7 +155,12 @@ function updateStats() {
   const incorrect = document.querySelectorAll(".incorrect").length;
   const total = correct + incorrect;
 
-  const minutesElapsed = (parseInt(currentMode) - timeLeft) / 60;
+  let minutesElapsed;
+  if (currentMode === "passage") {
+    minutesElapsed = timeLeft / 60;
+  } else {
+    minutesElapsed = (parseInt(currentMode) - timeLeft) / 60;
+  }
   if (minutesElapsed === 0) return;
 
   // raw WPM
@@ -170,6 +213,11 @@ document.addEventListener("keydown", (e) => {
 
   updateStats();
 
+  // Move cursor to the next position
+  document.querySelector('.cursor')?.classList.remove('cursor');
+  const nextSpan = spans[currentIndex + 1];
+  if (nextSpan) nextSpan.classList.add('cursor');
+
   // Clear hidden input and keep it focused
   document.getElementById("hidden-input").value = "";
   document.getElementById("hidden-input").focus();
@@ -207,6 +255,11 @@ document.getElementById("hidden-input").addEventListener("input", (e) => {
 
   updateStats();
 
+  // Move cursor to the next position
+  document.querySelector('.cursor')?.classList.remove('cursor');
+  const nextSpan = spans[currentIndex + 1];
+  if (nextSpan) nextSpan.classList.add('cursor');
+
   // Clear hidden input and keep it focused
   e.target.value = "";
   e.target.focus();
@@ -214,6 +267,25 @@ document.getElementById("hidden-input").addEventListener("input", (e) => {
   if (currentIndex + 1 === currentPassage.length) {
     if (currentMode === "passage") {
       endTest();
+    }
+  }
+});
+
+// Backspace support
+document.getElementById("hidden-input").addEventListener("keydown", (e) => {
+  if (!isRunning) return;
+  if (e.key === 'Backspace') {
+    e.preventDefault();
+    const spans = document.querySelectorAll("#passage span");
+    const currentIndex = document.querySelectorAll(".correct, .incorrect").length - 1;
+    if (currentIndex >= 0) {
+      const lastSpan = spans[currentIndex];
+      if (lastSpan.classList.contains('incorrect')) {
+        lastSpan.classList.remove('incorrect');
+        // Update cursor
+        document.querySelector('.cursor')?.classList.remove('cursor');
+        lastSpan.classList.add('cursor');
+      }
     }
   }
 });
@@ -235,7 +307,12 @@ function endTest() {
   const total = correct + incorrect;
 
   const accuracyScore = total === 0 ? 0 : Math.round((correct / currentPassage.length) * 100);
-  const wpmScore = Math.round(correct / 5 / (parseInt(currentMode) / 60));
+  let wpmScore;
+  if (currentMode === "passage") {
+    wpmScore = Math.round(correct / 5 / (timeLeft / 60));
+  } else {
+    wpmScore = Math.round(correct / 5 / (parseInt(currentMode) / 60));
+  }
 
   wpm.textContent = wpmScore;
   accuracy.textContent = accuracyScore;
@@ -243,8 +320,18 @@ function endTest() {
   document.getElementById("result-accuracy").textContent = accuracyScore;
   document.getElementById("result-chars").textContent = `${correct}/${currentPassage.length}`;
 
+  // Smart result messages
+  let subtitleText = "Solid run. Keep pushing to beat your high score.";
+  if (parseInt(personalBest.textContent) === 0) {
+    subtitleText = "Baseline Established!";
+  } else if (wpmScore > parseInt(personalBest.textContent)) {
+    subtitleText = "High Score Smashed!";
+  }
+  document.querySelector('.subtitle').textContent = subtitleText;
+
   if (wpmScore > parseInt(personalBest.textContent)) {
     personalBest.textContent = wpmScore;
+    localStorage.setItem('typingSpeedPersonalBest', wpmScore);
   }
 
   results.style.display = "flex";
@@ -252,6 +339,7 @@ function endTest() {
   document.querySelectorAll(".result-decoration").forEach((el) => {
   el.style.display = "block";
 });
+  restartBtn.hidden = true;
 }
 
 // Mobile Dropdown Listeners
@@ -285,5 +373,6 @@ document.getElementById("go-again").addEventListener("click", () => {
   lastKeyTime = null;
   idleSeconds = 0;
   wpmHistory = [];
+  restartBtn.hidden = true;
   loadPassage();
 });
