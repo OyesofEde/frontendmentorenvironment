@@ -1,143 +1,147 @@
 /* === Custom Font: Sora === */
+/* Load the Sora Regular font for normal text */
 @font-face {
-	font-family: 'Sora';
-	src: url('./assets/fonts/Sora/static/Sora-Regular.ttf') format('truetype');
-	font-weight: 400;
-	font-style: normal;
+    font-family: 'Sora'; /* Name used in font-family */
+    src: url('./assets/fonts/Sora/static/Sora-Regular.ttf') format('truetype'); /* Font file source */
+    font-weight: 400; /* Normal weight */
+    font-style: normal; /* Normal style */
 }
+/* Load the Sora SemiBold font for heavier text */
 @font-face {
-	font-family: 'Sora';
-	src: url('./assets/fonts/Sora/static/Sora-SemiBold.ttf') format('truetype');
-	font-weight: 600;
-	font-style: normal;
+    font-family: 'Sora';
+    src: url('./assets/fonts/Sora/static/Sora-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
 }
+/* Load the Sora Bold font for headings and strong emphasis */
 @font-face {
-	font-family: 'Sora';
-	src: url('./assets/fonts/Sora/static/Sora-Bold.ttf') format('truetype');
-	font-weight: 700;
-	font-style: normal;
+    font-family: 'Sora';
+    src: url('./assets/fonts/Sora/static/Sora-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
 }
 
 /* === Base Styles === */
+/* Set the default body styles for the whole page */
 body {
-	font-family: 'Segoe UI', 'Sora', Arial, sans-serif;
-	background: hsl(0, 0%, 10%);
-	color: hsl(0, 0%, 100%);
-	margin: 0;
-	min-height: 100vh;
+    font-family: 'Segoe UI', 'Sora', Arial, sans-serif; /* Default font stack */
+    background: hsl(0, 0%, 10%); /* Dark background */
+    color: hsl(0, 0%, 100%); /* White text */
+    margin: 0; /* Remove default page margin */
+    min-height: 100vh; /* Ensure body takes full viewport height */
 }
 
 main {
-	max-width: 100%;
-	margin: 0 auto;
-	padding: 0 1rem;
+    max-width: 100%; /* Allow main to fill available width */
+    margin: 0 auto; /* Center main horizontally */
+    padding: 0 1rem; /* Add horizontal padding */
 }
 
 .navbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1.5rem 2rem;
-	background: hsl(0, 0%, 13%);
-	border-bottom: 1px solid hsl(0, 0%, 18%);
+    display: flex; /* Use flex layout for navbar items */
+    justify-content: space-between; /* Place brand and score apart */
+    align-items: center; /* Center items vertically */
+    padding: 1.5rem 2rem; /* Space inside navbar */
+    background: hsl(0, 0%, 13%); /* Navbar background color */
+    border-bottom: 1px solid hsl(0, 0%, 18%); /* Subtle line under navbar */
 }
 .navbar h1 {
-	font-family: 'Sora', sans-serif;
-	font-weight: 700;
-	font-size: 2rem;
-	letter-spacing: 0.03em;
-	margin: 0;
+    font-family: 'Sora', sans-serif; /* Use Sora for headings */
+    font-weight: 700; /* Bold weight */
+    font-size: 2rem; /* Larger heading size */
+    letter-spacing: 0.03em; /* Slight letter spacing */
+    margin: 0; /* Remove default margin */
 }
 .navbar p {
-	font-family: 'Sora', sans-serif;
-	font-weight: 400;
-	font-size: 1rem;
-	margin: 0;
+    font-family: 'Sora', sans-serif;
+    font-weight: 400; /* Normal weight */
+    font-size: 1rem; /* Standard text size */
+    margin: 0; /* Remove default margin */
 }
 
 .stats-bar {
-	display: flex;
-	justify-content: center;
-	gap: 2rem;
-	background: hsl(0, 0%, 13%);
-	padding: 1rem 0;
-	font-family: 'Sora', sans-serif;
-	font-size: 1.1rem;
-	border-bottom: 1px solid hsl(0, 0%, 18%);
+    display: flex; /* Horizontal layout for stats */
+    justify-content: center; /* Center stats horizontally */
+    gap: 2rem; /* Space between stat items */
+    background: hsl(0, 0%, 13%); /* Same dark background as navbar */
+    padding: 1rem 0; /* Vertical padding */
+    font-family: 'Sora', sans-serif;
+    font-size: 1.1rem; /* Slightly larger text */
+    border-bottom: 1px solid hsl(0, 0%, 18%); /* Divider under stats */
 }
 .stats-bar p {
-	margin: 0;
+    margin: 0; /* Remove p default margin */
 }
 
 .options {
-	display: flex;
-	justify-content: center;
-	gap: 3rem;
-	margin: 2rem 0 1.5rem 0;
-	font-family: 'Sora', sans-serif;
-	border-bottom: 1px solid hsl(0, 54%, 95%, 0.3);
-	padding: 1rem;
+    display: flex; /* Horizontal layout for options */
+    justify-content: center; /* Center groups */
+    gap: 3rem; /* Space between option groups */
+    margin: 2rem 0 1.5rem 0; /* Spacing around options */
+    font-family: 'Sora', sans-serif;
+    border-bottom: 1px solid hsl(0, 54%, 95%, 0.3); /* Light separator */
+    padding: 1rem; /* Space inside the options row */
 }
 .option-group {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
+    display: flex; /* Horizontal layout for label and buttons */
+    align-items: center; /* Align label and buttons vertically */
+    gap: 1rem; /* Space between label and buttons */
 }
 .option-group p {
-	margin: 0;
-	font-weight: 600;
+    margin: 0; /* Remove default margin */
+    font-weight: 600; /* Bold label */
 }
 .option-btns {
-	display: flex;
-	gap: 0.5rem;
+    display: flex; /* Horizontal button group */
+    gap: 0.5rem; /* Small gap between buttons */
 }
 .option-btn {
-	background: hsl(0, 0%, 18%);
-	color: hsl(0, 0%, 100%);
-	border: none;
-	padding: 0.5rem 1.2rem;
-	border-radius: 8px;
-	font-family: 'Sora', sans-serif;
-	font-size: 1rem;
-	font-weight: 500;
-	cursor: pointer;
-	transition: background 0.2s, color 0.2s;
+    background: hsl(0, 0%, 18%); /* Dark button background */
+    color: hsl(0, 0%, 100%); /* White button text */
+    border: none; /* No border */
+    padding: 0.5rem 1.2rem; /* Button padding */
+    border-radius: 8px; /* Rounded corners */
+    font-family: 'Sora', sans-serif;
+    font-size: 1rem; /* Standard font size */
+    font-weight: 500; /* Medium weight */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.2s, color 0.2s; /* Smooth hover transition */
 }
 .option-btn.active,
 .option-btn:hover {
-	background: hsl(214, 100%, 55%);
-	color: #fff;
+    background: hsl(214, 100%, 55%); /* Bright blue for active/hover */
+    color: #fff; /* White text */
 }
 
 .typing-area {
-	background: hsl(0, 0%, 13%);
-	margin: 2rem auto 0 auto;
-	max-width: 700px;
-	border-radius: 16px;
-	padding: 2.5rem 2rem 2rem 2rem;
-	box-shadow: 0 8px 32px -8px rgba(0,0,0,0.25);
-	min-height: 180px;
-	font-family: 'Sora', sans-serif;
-	position: relative;
+    background: hsl(0, 0%, 13%); /* Dark typing container */
+    margin: 2rem auto 0 auto; /* Center horizontally, space above */
+    max-width: 700px; /* Limit width */
+    border-radius: 16px; /* Rounded corners */
+    padding: 2.5rem 2rem 2rem 2rem; /* Inner spacing */
+    box-shadow: 0 8px 32px -8px rgba(0,0,0,0.25); /* Soft shadow */
+    min-height: 180px; /* Minimum height */
+    font-family: 'Sora', sans-serif;
+    position: relative; /* For absolutely positioned child elements */
 }
 #passage {
-	font-size: 1.25rem;
-	line-height: 2;
-	color: hsl(0, 0%, 100%);
-	margin: 0 0 1.5rem 0;
-	font-family: 'Sora', sans-serif;
+    font-size: 1.25rem; /* Larger passage text */
+    line-height: 2; /* Comfortable line spacing */
+    color: hsl(0, 0%, 100%); /* White text */
+    margin: 0 0 1.5rem 0; /* Space below passage */
+    font-family: 'Sora', sans-serif;
 }
 
 .restart-container {
-  display: flex;
+  display: flex; /* Center restart area horizontally */
   justify-content: center;
   align-items: center;
-  margin: 2rem 0;
+  margin: 2rem 0; /* Vertical spacing */
 }
 
 .restart-test-btn {
-  background: hsl(214, 9%, 31%);
-  color: hsl(0, 0%, 100%);
+  background: hsl(214, 9%, 31%); /* Dark blue button */
+  color: hsl(0, 0%, 100%); /* White text */
   border: none;
   padding: 0.7rem 1.2rem;
   font-size: 1rem;
@@ -145,20 +149,20 @@ main {
   font-family: 'Sora', sans-serif;
   border-radius: 12px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease; /* Smooth hover effect */
 }
 
 .restart-test-btn:hover {
-  background: hsl(210, 100%, 65%);
-  transform: translateY(-2px);
+  background: hsl(210, 100%, 65%); /* Brighter blue on hover */
+  transform: translateY(-2px); /* Slight lift effect */
 }
 
 .restart-test-btn:active {
-  transform: translateY(0);
+  transform: translateY(0); /* Reset on click */
 }
 
 .hint {
-  background: hsl(214, 100%, 55%);
+  background: hsl(214, 100%, 55%); /* Bright action button */
   color: hsl(0, 0%, 100%);
   border: none;
   padding: 1rem 2rem;
@@ -169,22 +173,22 @@ main {
   cursor: pointer;
   transition: all 0.2s ease;
   margin: 0;
-  position: absolute;
+  position: absolute; /* Positioned over typing area */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* Center the button */
 }
 
 .hint:hover {
-  transform: translate(-50%, -50%) translateY(-2px) scale(1.1);
+  transform: translate(-50%, -50%) translateY(-2px) scale(1.1); /* Hover pop */
 }
 
 .hint:active {
-  transform: translate(-50%, -50%) translateY(0) scale(1);
+  transform: translate(-50%, -50%) translateY(0) scale(1); /* Click reset */
 }
 
 #restart-btn {
-  background: hsl(214, 100%, 55%);
+  background: hsl(214, 100%, 55%); /* Same blue style as start */
   color: hsl(0, 0%, 100%);
   border: none;
   padding: 0.5rem 1rem;
@@ -194,197 +198,199 @@ main {
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
-  margin-left: 1rem;
+  margin-left: 1rem; /* Space from other buttons */
 }
 
 #restart-btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px); /* Hover lift */
 }
 /* Hide element utility */
 .hidden {
-	display: none !important;
+    display: none !important; /* Force hide element */
 }
 
 /* Results Modal - Hidden by default */
 .results-backdrop {
-  display: none;
-  position: fixed;
+  display: none; /* Hidden until shown */
+  position: fixed; /* Fill the screen */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-  backdrop-filter: blur(8px); /* Blur effect */
-  z-index: 999; /* Behind modal but above page */
+  backdrop-filter: blur(8px); /* Blur content behind */
+  z-index: 999; /* Above page content */
 }
 
 .results-backdrop.show {
-  display: block;
+  display: block; /* Show overlay when class added */
 }
 
 .results {
-	display: none; /* Hidden by default */
-	flex-direction: column;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background: hsl(0, 0%, 7%); /* Neutral 900 */
-	color: hsl(0, 0%, 100%); /* Neutral 0 */
-	font-family: 'Sora', sans-serif;
-	padding: 3rem;
-	border: none;
-	border-radius: 16px;
-	box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.5);
-	text-align: center;
-	min-width: 360px;
-	max-width: 90vw;
-	z-index: 1000;
-	border: 1px solid hsl(0, 0%, 15%); /* Neutral 800 */
-	backdrop-filter: blur(9px);
+    display: none; /* Hidden until test ends */
+    flex-direction: column; /* Stack modal contents vertically */
+    position: fixed; /* Fixed on screen */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center modal */
+    background: hsl(0, 0%, 7%); /* Dark modal background */
+    color: hsl(0, 0%, 100%); /* White text */
+    font-family: 'Sora', sans-serif;
+    padding: 3rem; /* Modal padding */
+    border: none;
+    border-radius: 16px; /* Rounded corners */
+    box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.5); /* Strong shadow */
+    text-align: center;
+    min-width: 360px; /* Minimum modal width */
+    max-width: 90vw; /* Fit on smaller screens */
+    z-index: 1000; /* Above overlay */
+    border: 1px solid hsl(0, 0%, 15%); /* Modal border */
+    backdrop-filter: blur(9px);
 }
 
 .results.show {
-	display: flex;
+    display: flex; /* Show modal when class added */
 }
 
 /* Backdrop overlay */
 .results-overlay {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: rgba(0, 0, 0, 0.7);
-	backdrop-filter: blur(8px);
-	z-index: 999;
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    backdrop-filter: blur(8px);
+    z-index: 999;
 }
 
 .results-overlay.active,
 .results.active {
-	display: block;
+    display: block; /* Show overlay or result when active */
 }
 
 /* Heading */
 .results h2 {
-	font-size: 1.75rem;
-	font-weight: 700;
-	margin-bottom: 0.75rem;
-	color: hsl(0, 0%, 100%);
+    font-size: 1.75rem; /* Large heading */
+    font-weight: 700; /* Bold text */
+    margin-bottom: 0.75rem; /* Space below heading */
+    color: hsl(0, 0%, 100%);
 }
 
 /* Encouraging subtitle */
 .results .subtitle {
-	color: hsl(240, 1%, 59%); /* Neutral 400 */
-	font-size: 1rem;
-	font-weight: 400;
-	margin-bottom: 2rem;
-	line-height: 1.5;
+    color: hsl(240, 1%, 59%); /* Light neutral text */
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    line-height: 1.5;
 }
 
 /* Stats grid */
 .results-stats {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 1.5rem;
-	margin: 2rem 0;
-	padding: 1.5rem;
-	background: hsl(0, 0%, 15%); /* Neutral 800 */
-	border-radius: 12px;
+    display: grid; /* Grid layout for stats */
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap: 1.5rem; /* Space between stat cards */
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: hsl(0, 0%, 15%); /* Slightly lighter background */
+    border-radius: 12px;
 }
 
 .results-stats p {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-	font-size: 0.875rem;
-	color: hsl(240, 3%, 46%); /* Neutral 500 */
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	font-weight: 600;
+    display: flex; /* Vertical layout for each stat */
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: hsl(240, 3%, 46%); /* Muted text */
+    text-transform: uppercase; /* Uppercase labels */
+    letter-spacing: 0.05em;
+    font-weight: 600;
 }
 
 .results-stats span {
-	font-size: 1.5rem;
-	font-weight: 700;
-	color: hsl(0, 0%, 100%);
+    font-size: 1.5rem; /* Bigger stat number */
+    font-weight: 700;
+    color: hsl(0, 0%, 100%);
 }
 
 /* WPM highlight in blue */
 #result-wpm {
-	color: hsl(214, 100%, 55%); /* Blue 600 */
-	font-size: 2rem;
+    color: hsl(214, 100%, 55%); /* Bright blue */
+    font-size: 2rem;
 }
 
 /* Accuracy colors */
-#result-accuracy.high { color: hsl(140, 63%, 57%); } /* Green 500 */
-#result-accuracy.mid { color: hsl(49, 85%, 70%); } /* Yellow 400 */
-#result-accuracy.low { color: hsl(354, 63%, 57%); } /* Red 500 */
+#result-accuracy.high { color: hsl(140, 63%, 57%); } /* Green for good accuracy */
+#result-accuracy.mid { color: hsl(49, 85%, 70%); } /* Yellow for medium accuracy */
+#result-accuracy.low { color: hsl(354, 63%, 57%); } /* Red for low accuracy */
 
 /* Restart button */
 #go-again {
-	background: hsl(214, 100%, 55%); /* Blue 600 */
-	color: hsl(0, 0%, 100%);
-	border: none;
-	padding: 1rem 2.5rem;
-	font-size: 1rem;
-	font-weight: 600;
-	font-family: 'Sora', sans-serif;
-	border-radius: 12px;
-	cursor: pointer;
-	transition: all 0.2s ease;
-	margin-top: 0.5rem;
+    background: hsl(214, 100%, 55%); /* Blue button */
+    color: hsl(0, 0%, 100%);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Sora', sans-serif;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 0.5rem;
 }
 
 #go-again:hover {
-	background: hsl(210, 100%, 65%); /* Blue 400 */
-	transform: translateY(-2px);
+    background: hsl(210, 100%, 65%); /* Hover color */
+    transform: translateY(-2px); /* Lift on hover */
 }
 
 #go-again:active {
-	transform: translateY(0);
+    transform: translateY(0); /* Reset on click */
 }
 
 /* Responsive */
+/* Smaller screens under 480px */
 @media (max-width: 480px) {
-	.results {
-		padding: 2rem;
-		min-width: 320px;
-	}
-	.results-stats {
-		grid-template-columns: 1fr;
-		gap: 1rem;
-	}
-	.results h2 {
-		font-size: 1.5rem;
-	}
+    .results {
+        padding: 2rem; /* Smaller modal padding */
+        min-width: 320px; /* Smaller width */
+    }
+    .results-stats {
+        grid-template-columns: 1fr; /* Stack stats vertically */
+        gap: 1rem;
+    }
+    .results h2 {
+        font-size: 1.5rem; /* Smaller heading */
+    }
 }
 
+/* Mobile-specific styles under 600px */
 @media (max-width: 600px) {
 
   /* Logo swap */
-  .desktop-only { display: none !important; }
-  .mobile-only { display: block !important; width: 40px; }
+  .desktop-only { display: none !important; } /* Hide desktop logo */
+  .mobile-only { display: block !important; width: 40px; } /* Show mobile logo */
 
   /* Navbar */
   .navbar {
-    padding: 1rem;
+    padding: 1rem; /* Less padding on mobile */
   }
   .navbar p {
-    font-size: 0.85rem;
+    font-size: 0.85rem; /* Smaller text */
   }
 
-  /* Stats Bar - stack vertically */
+  /* Stats Bar - row layout */
   .stats-bar {
-    flex-direction: row;
+    flex-direction: row; /* Keep stats in a row */
     align-items: center;
     gap: 1rem;
     font-size: 0.9rem;
     padding: 0.75rem 1rem;
   }
   .stats-bar p {
-    display: flex;
+    display: flex; /* Vertical label/value layout */
     flex-direction: column;
     align-items: center;
     gap: 0.25rem;
@@ -394,10 +400,10 @@ main {
   }
   .stats-bar p:nth-child(1),
   .stats-bar p:nth-child(2) {
-    border-right: 1px solid hsl(0, 0%, 30%);
+    border-right: 1px solid hsl(0, 0%, 30%); /* Divider between first two stats */
   }
 
-  /* Options - hide buttons and labels, show dropdowns */
+  /* Options - hide desktop buttons and show mobile dropdowns */
   .options {
     flex-direction: row;
     justify-content: center;
@@ -406,11 +412,11 @@ main {
     padding: 0.75rem 1rem;
   }
   .option-group {
-    display: none;
+    display: none; /* Hide desktop option groups */
   }
   #difficulty-select,
   #mode-select {
-    display: block;
+    display: block; /* Show mobile dropdowns */
     background: hsl(0, 0%, 18%);
     color: hsl(0, 0%, 100%);
     border: none;
@@ -423,23 +429,23 @@ main {
 
   /* Typing Area */
   .typing-area {
-    margin: 1rem auto;
-    padding: 2rem 1rem 1.5rem 1rem;
+    margin: 1rem auto; /* Less top margin */
+    padding: 2rem 1rem 1.5rem 1rem; /* Smaller padding */
     border-radius: 10px;
   }
   #passage {
-    font-size: 1rem;
-    line-height: 1.8;
+    font-size: 1rem; /* Smaller text */
+    line-height: 1.8; /* Tighter line height */
   }
 
   /* Results */
   .results {
     padding: 1.5rem;
     min-width: unset;
-    width: 70vw;
-	height: 70vh;
+    width: 70vw; /* Take most of the screen width */
+    height: 70vh; /* Take most of the viewport height */
     max-width: none;
-	top: 45%;
+    top: 45%; /* Move modal slightly higher */
   }
   .results h2 {
     font-size: 1.3rem;
@@ -450,7 +456,7 @@ main {
     padding: 1rem;
   }
   #go-again {
-    width: 100%;
+    width: 100%; /* Full width button */
     padding: 0.8rem 1.5rem;
     font-size: 0.95rem;
   }
@@ -469,82 +475,82 @@ main {
 }
 
 @media (min-width: 768px) {
-	main {
-		max-width: 768px;
-	}
+    main {
+        max-width: 768px; /* Wider max width on tablet */
+    }
 }
 
 @media (min-width: 992px) {
-	main {
-		max-width: 992px;
-	}
+    main {
+        max-width: 992px; /* Wider max width on small desktop */
+    }
 }
 
 @media (min-width: 1200px) {
-	main {
-		max-width: 1200px;
-	}
+    main {
+        max-width: 1200px; /* Wider max width on larger desktop */
+    }
 }
 
 @media (min-width: 1400px) {
-	main {
-		max-width: 1400px;
-	}
+    main {
+        max-width: 1400px; /* Maximum width on very large screens */
+    }
 }
 
 /* Logo swap */
-.mobile-only { display: none; }
-.desktop-only { display: block; width: 150px; }
+.mobile-only { display: none; } /* Hide mobile logo by default */
+.desktop-only { display: block; width: 150px; } /* Show desktop logo by default */
 
 /* Hide dropdowns on desktop */
 @media (min-width: 601px) {
   #difficulty-select,
   #mode-select {
-    display: none;
+    display: none; /* Hide select dropdowns on wider screens */
   }
 }
 
 .correct {
-  color: hsl(210, 100%, 65%);
+  color: hsl(210, 100%, 65%); /* Color for correct characters */
 }
 
 .incorrect {
-  color: red;
-  text-decoration: underline;
+  color: red; /* Color for incorrect characters */
+  text-decoration: underline; /* Underline incorrect characters */
 }
 
 .cursor {
-  background: rgba(255, 255, 0, 0.5);
+  background: rgba(255, 255, 0, 0.5); /* Yellow highlight for cursor position */
   border-radius: 2px;
-  animation: blink 1s infinite;
+  animation: blink 1s infinite; /* Blinking cursor animation */
 }
 
 @keyframes blink {
   0%, 50% {
-    opacity: 1;
+    opacity: 1; /* Visible half the time */
   }
   51%, 100% {
-    opacity: 0;
+    opacity: 0; /* Hidden half the time */
   }
 }
 
 img[alt="Completed"] {
-	width: 50px;
-	height: auto;
-	margin: 0 auto; 
+    width: 50px; /* Fixed icon width */
+    height: auto;
+    margin: 0 auto; /* Center icon */
 }
 
 .result-decoration {
   display: none; /* Hidden by default */
-  position: absolute;
+  position: absolute; /* Positioned relative to the page */
   /* Adjust top/left/right/bottom to position them */
   /* Example: top: 20%; left: 10%; for decoration-1 */
 }
 
 .decoration-1 {
-  top: 20%; /* Adjust as needed */
+  top: 20%; /* Example position */
   left: 10%;
-  width: 50px; /* Set size */
+  width: 50px; /* Size of decoration */
   z-index: 1001; /* Above modal */
 }
 
@@ -556,6 +562,6 @@ img[alt="Completed"] {
 }
 
 .blurred {
-  filter: blur(4px);
-  user-select: none;
+  filter: blur(4px); /* Blur effect */
+  user-select: none; /* Disable text selection while blurred */
 }

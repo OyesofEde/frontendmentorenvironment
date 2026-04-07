@@ -1,63 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta charset="UTF-8"> <!-- Set character encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Make page responsive -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="stylist.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png"> <!-- Favicon -->
+  <link rel="stylesheet" href="stylist.css"> <!-- Link the CSS file -->
   
-  <title>Frontend Mentor | Typing Speed Test</title>
-
+  <title>Frontend Mentor | Typing Speed Test</title> <!-- Page title -->
 </head>
 
 <body>
 <main>
     <!-- Navbar -->
   <div class="navbar">
-    <img src="./assets/images/logo-large.svg" alt="typing speed test logo" class="desktop-only">
-    <img src="./assets/images/logo-small.svg" alt="typing speed test logo" class="mobile-only">
-    <p>Personal Best: <span id="personal-best">0</span> WPM</p>
+    <img src="./assets/images/logo-large.svg" alt="typing speed test logo" class="desktop-only"> <!-- Desktop logo -->
+    <img src="./assets/images/logo-small.svg" alt="typing speed test logo" class="mobile-only"> <!-- Mobile logo -->
+    <p>Personal Best: <span id="personal-best">0</span> WPM</p> <!-- Personal best display -->
   </div>
 
   <!-- Stats Bar -->
   <div class="stats-bar">
-    <p>WPM: <span id="wpm">0</span></p>
-    <p>Accuracy: <span id="accuracy">0%</span></p>
-    <p>Time: <span id="time">0s</span></p>
+    <p>WPM: <span id="wpm">0</span></p> <!-- Current WPM -->
+    <p>Accuracy: <span id="accuracy">0%</span></p> <!-- Current accuracy -->
+    <p>Time: <span id="time">0</span>s</p> <!-- Current timer -->
   </div>
 
   <!-- Options -->
   <div class="options">
 
     <div class="option-group">
-      <p>Difficulty:</p>
+      <p>Difficulty:</p> <!-- Difficulty label -->
       <div class="option-btns">
-        <button class="option-btn active" data-difficulty="easy">Easy</button>
-        <button class="option-btn" data-difficulty="medium">Medium</button>
-        <button class="option-btn" data-difficulty="hard">Hard</button>
+        <button class="option-btn active" data-difficulty="easy">Easy</button> <!-- Easy difficulty -->
+        <button class="option-btn" data-difficulty="medium">Medium</button> <!-- Medium difficulty -->
+        <button class="option-btn" data-difficulty="hard">Hard</button> <!-- Hard difficulty -->
       </div>
     </div>
 
     <div class="option-group">
-      <p>Mode:</p>
+      <p>Mode:</p> <!-- Mode label -->
       <div class="option-btns">
-        <button class="option-btn" data-mode="10">Time: 10s</button>
-        <button class="option-btn" data-mode="15">Time: 15s</button>
-        <button class="option-btn active" data-mode="30">Time: 30s</button>
-        <button class="option-btn" data-mode="60">Time: 60s</button>
-        <button class="option-btn" data-mode="passage">Passage</button>
+        <button class="option-btn" data-mode="10">Time: 10s</button> <!-- 10-second mode -->
+        <button class="option-btn" data-mode="15">Time: 15s</button> <!-- 15-second mode -->
+        <button class="option-btn active" data-mode="30">Time: 30s</button> <!-- 30-second mode -->
+        <button class="option-btn" data-mode="60">Time: 60s</button> <!-- 60-second mode -->
+        <button class="option-btn" data-mode="passage">Passage</button> <!-- Passage mode -->
       </div>
     </div>
 
     <!-- Mobile Dropdowns -->
-    <select id="difficulty-select">
+    <select id="difficulty-select"> <!-- Mobile difficulty selector -->
       <option value="easy" selected>Easy</option>
       <option value="medium">Medium</option>
       <option value="hard">Hard</option>
     </select>
 
-    <select id="mode-select">
+    <select id="mode-select"> <!-- Mobile mode selector -->
       <option value="10">10s</option>
       <option value="15">15s</option>
       <option value="30" selected>30s</option>
@@ -69,30 +68,30 @@
 
   <!-- Typing Area -->
   <div class="typing-area">
-    <input id="hidden-input" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" style="position: absolute; left: -9999px; opacity: 0;">
-    <p id="passage" hidden>The passage will appear here.</p>
-    <button class="hint" id="start-test-btn">Click to Start Typing</button>
-    <button id="restart-btn" hidden>Restart</button>
+    <input id="hidden-input" type="text" autocapitalize="off" autocorrect="off" spellcheck="false" style="position: absolute; left: -9999px; opacity: 0;"> <!-- Hidden input used for mobile keyboard -->
+    <p id="passage" hidden>The passage will appear here.</p> <!-- Passage text container -->
+    <button class="hint" id="start-test-btn">Click to Start Typing</button> <!-- Start button -->
+    <button id="restart-btn" hidden>Restart</button> <!-- Restart button displayed during test -->
   </div>
 
   <!-- Results Modal -->
-   <div class="results-backdrop"></div>
+  <div class="results-backdrop"></div> <!-- Overlay behind result modal -->
   <div class="results" id="results" hidden>
-    <img src="./assets/images/icon-completed.svg" alt="Completed">
-    <h2>Test Complete!</h2>
-    <p class="subtitle">Solid run. Keep pushing to beat your high score.</p>
+    <img src="./assets/images/icon-completed.svg" alt="Completed"> <!-- Completed icon -->
+    <h2>Test Complete!</h2> <!-- Result heading -->
+    <p class="subtitle">Solid run. Keep pushing to beat your high score.</p> <!-- Result subtitle -->
 
     <div class="results-stats">
-      <p>WPM: <span id="result-wpm">0</span></p>
-      <p>Accuracy: <span id="result-accuracy">0</span>%</p>
-      <p>Characters: <span id="result-chars">0/0</span></p>
+      <p>WPM: <span id="result-wpm">0</span></p> <!-- Final WPM -->
+      <p>Accuracy: <span id="result-accuracy">0</span>%</p> <!-- Final accuracy -->
+      <p>Characters: <span id="result-chars">0/0</span></p> <!-- Characters typed/count -->
     </div>
 
-    <button id="go-again">Go Again</button>
+    <button id="go-again">Go Again</button> <!-- Button to restart after results -->
   </div>
-  <img src="./assets/images/pattern-star-2.svg" alt="star2" class="result-decoration decoration-1">
-  <img src="./assets/images/pattern-star-1.svg" alt="star1" class="result-decoration decoration-2">
+  <img src="./assets/images/pattern-star-2.svg" alt="star2" class="result-decoration decoration-1"> <!-- Decoration 1 -->
+  <img src="./assets/images/pattern-star-1.svg" alt="star1" class="result-decoration decoration-2"> <!-- Decoration 2 -->
 </main>
-  <script src="script.js"></script>
+<script src="script.js"></script> <!-- Link the JavaScript file -->
 </body>
 </html>
