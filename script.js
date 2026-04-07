@@ -83,14 +83,13 @@ function startTest() {
   passage.classList.remove("blurred");
   document.querySelector(".results-backdrop").style.display = "none";
   document.getElementById("hidden-input").focus();
-}
 
   if (currentMode !== "passage") {
     timeLeft = parseInt(currentMode);
     time.textContent = timeLeft;
     startTimer();
   }
-
+}
 
 // Start Button
 startBtn.addEventListener("click", () => {
